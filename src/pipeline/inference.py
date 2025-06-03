@@ -2,8 +2,8 @@
 import logging
 import os
 import numpy as np
-from tflite_runtime.interpreter import Interpreter
-from tflite_runtime.interpreter import load_delegate
+from tensorflow.lite.python.interpreter import Interpreter
+from tensorflow.lite.python.interpreter import load_delegate
 
 log = logging.getLogger(__name__)
 
