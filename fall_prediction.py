@@ -29,7 +29,7 @@ def _fall_detect_config():
     return config
 
 
-def Fall_prediction(img_1,img_2,img_3=None):
+def Fall_prediction(img_1,img_2,img_3=None,img_4=None,img_5=None):
     
     config = _fall_detect_config()
     result = None
@@ -66,6 +66,43 @@ def Fall_prediction(img_1,img_2,img_3=None):
             
             time.sleep(fall_detector.min_time_between_frames)
             process_response(fall_detector.process_sample(image=img_3))
+
+            if len(result) == 1:
+
+                category = result[0]['label']
+                confidence = result[0]['confidence']
+                angle = result[0]['leaning_angle']
+                keypoint_corr = result[0]['keypoint_corr']
+                
+                dict_res = {}
+                dict_res["category"] = category
+                dict_res["confidence"] = confidence
+                dict_res["angle"] = angle
+                dict_res["keypoint_corr"] = keypoint_corr
+                return dict_res
+            
+        if img_4:
+            
+            time.sleep(fall_detector.min_time_between_frames)
+            process_response(fall_detector.process_sample(image=img_4))
+
+            if len(result) == 1:
+
+                category = result[0]['label']
+                confidence = result[0]['confidence']
+                angle = result[0]['leaning_angle']
+                keypoint_corr = result[0]['keypoint_corr']
+                
+                dict_res = {}
+                dict_res["category"] = category
+                dict_res["confidence"] = confidence
+                dict_res["angle"] = angle
+                dict_res["keypoint_corr"] = keypoint_corr
+                return dict_res
+        
+        if img_5: 
+            time.sleep(fall_detector.min_time_between_frames)
+            process_response(fall_detector.process_sample(image=img_5))
 
             if len(result) == 1:
 

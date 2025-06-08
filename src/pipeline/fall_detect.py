@@ -418,7 +418,7 @@ class FallDetector():
                     # development mode
                     self.draw_lines(thumbnail, pose_dix, spinal_vector_score)
 
-                for t in [-1, -2]:
+                for t in [-1, -2, -3, -4]:
                     lapse = now - self._prev_data[t][self.TIMESTAMP]
 
                     if not self._prev_data[t][self.POSE_VAL] or \
