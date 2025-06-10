@@ -76,7 +76,7 @@ class FallDetector():
         # Otherwise on high performing hard, the poses could be too close to
         # each other and have negligible difference
         # for fall detection purpose.
-        self.min_time_between_frames = 1
+        self.min_time_between_frames = 0
         # Require the time distance between two video frames not to exceed
         # a certain limit in seconds.
         # Otherwise there could be data noise which could lead
@@ -418,7 +418,7 @@ class FallDetector():
                     # development mode
                     self.draw_lines(thumbnail, pose_dix, spinal_vector_score)
 
-                for t in [-1, -2, -3, -4]:
+                for t in [-1, -2]:
                     lapse = now - self._prev_data[t][self.TIMESTAMP]
 
                     if not self._prev_data[t][self.POSE_VAL] or \
